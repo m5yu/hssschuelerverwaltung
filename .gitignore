@@ -1,0 +1,38 @@
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+.project
+.settings
+target
+data
+gwt-unitCache
+widgetsets
+logs
+bin
+bin/node/
+bin/yarn/
+!/bin/
+.classpath
+.springBeans
+DBSeeder.java
+
+# Log files on the root package
+*.log
+
+# IntelliJ
+*.iml
+.idea
+atlassian-ide-plugin.xml
+rest-client.env.json
+
+dist/
+node_modules/
+rev-manifest.json
+
+# Mac OSX
+.DS_Store
+/bin/
