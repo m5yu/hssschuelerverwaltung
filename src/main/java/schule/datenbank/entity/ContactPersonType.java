@@ -2,9 +2,9 @@ package schule.datenbank.entity;
 
 public enum ContactPersonType
 {
-    Vater,
-    Mutter,
-    Ehegatte,
-    Bezugsperson,
-    Heim
+    father,
+    mother,
+    spouse,
+    caregiver,
+    asylum
 }

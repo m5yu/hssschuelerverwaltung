@@ -1,24 +1,26 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>com.innoplexia.builddefinition</groupId>
+        <artifactId>com.innoplexia.builddefinition</artifactId>
+        <version>2.11.0</version>
+    </parent>
+
     <groupId>schuledatenbank</groupId>
     <artifactId>schuledatenbank</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>8</source>
-                    <target>8</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+    <packaging>jar</packaging>
+
+    <properties>
+        <buildName>hssschuelerverwaltung</buildName>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <start-class>hssschuelerverwaltung.App</start-class>
+        <spring-boot.version>2.0.0.RELEASE</spring-boot.version>
+    </properties>
+
 
     <dependencyManagement>
         <dependencies>
@@ -55,6 +57,50 @@
             <artifactId>mongo-java-driver</artifactId>
             <version>3.6.3</version>
         </dependency>
+
+        <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.springframework.security/spring-security-core &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.security</groupId>-->
+            <!--<artifactId>spring-security-core</artifactId>-->
+            <!--<version>5.1.2.RELEASE</version>-->
+        <!--</dependency>-->
+
+        <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.springframework.security/spring-security-cas &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.security</groupId>-->
+            <!--<artifactId>spring-security-cas</artifactId>-->
+            <!--<version>5.1.2.RELEASE</version>-->
+        <!--</dependency>-->
+
+        <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.springframework.security/spring-security-rsa &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.security</groupId>-->
+            <!--<artifactId>spring-security-rsa</artifactId>-->
+            <!--<version>1.0.8.RELEASE</version>-->
+        <!--</dependency>-->
+
+        <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.springframework.security/spring-security-crypto &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.security</groupId>-->
+            <!--<artifactId>spring-security-crypto</artifactId>-->
+            <!--<version>5.1.2.RELEASE</version>-->
+        <!--</dependency>-->
+
+        <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.springframework.security/spring-security-config &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.security</groupId>-->
+            <!--<artifactId>spring-security-config</artifactId>-->
+            <!--<version>5.1.2.RELEASE</version>-->
+        <!--</dependency>-->
+
+        <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.springframework.security/spring-security-web &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.security</groupId>-->
+            <!--<artifactId>spring-security-web</artifactId>-->
+            <!--<version>5.1.2.RELEASE</version>-->
+        <!--</dependency>-->
+
+
 
         <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-autoconfigure &ndash;&gt;-->
         <!--<dependency>-->
@@ -93,6 +139,60 @@
 
 
     </dependencies>
+    <build>
+        <finalName>schuelerverwaltung</finalName>
+        <plugins>
+
+       <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.6.1</version>
+            <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+            </configuration>
+        </plugin>
+
+        <plugin>
+            <groupId>com.github.eirslett</groupId>
+            <artifactId>frontend-maven-plugin</artifactId>
+            <version>1.6</version>
+            <configuration>
+                <installDirectory>target</installDirectory>
+                <nodeVersion>v9.5.0</nodeVersion>
+                <yarnVersion>v1.3.2</yarnVersion>
+            </configuration>
+            <executions>
+                <execution>
+                    <id>install node and yarn</id>
+                    <goals>
+                        <goal>install-node-and-yarn</goal>
+                    </goals>
+                    <phase>generate-resources</phase>
+                </execution>
+                <execution>
+                    <id>yarn install</id>
+                    <goals>
+                        <goal>yarn</goal>
+                    </goals>
+                    <configuration>
+                        <arguments>install</arguments>
+                    </configuration>
+                </execution>
+                <execution>
+                    <id>build</id>
+                    <phase>generate-resources</phase>
+                    <goals>
+                        <goal>yarn</goal>
+                    </goals>
+                    <configuration>
+                        <arguments>build</arguments>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+        </plugins>
+    </build>
 
 
 </project>
