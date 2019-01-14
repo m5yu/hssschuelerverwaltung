@@ -10,35 +10,21 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import schule.datenbank.entity.Company;
 import schule.datenbank.entity.Student;
+import schule.datenbank.entity.User;
 import schule.datenbank.service.StudentService;
-import schule.datenbank.service.TestClassService;
 
 @RestController
 @CrossOrigin
 @RequestMapping(path = "/schule")
 public class Controller
 {
-    private StudentService   studentService;
-    private TestClassService testClassService;
+    private StudentService studentService;
 
     @Autowired
-    public Controller(StudentService studentService, TestClassService testClassService)
+    public Controller(StudentService studentService)
     {
         this.studentService = studentService;
-        this.testClassService = testClassService;
     }
-
-    //    @PostMapping(path = "/test")
-    //    public void addTest(@RequestBody TestClass testClass)
-    //    {
-    //        testClassService.save(testClass);
-    //    }
-    //
-    //    @GetMapping(path = "/test")
-    //    public List<TestClass> test()
-    //    {
-    //        return testClassService.findAll();
-    //    }
 
     @GetMapping(path = "")
     public List<Student> findAllStudents()
@@ -64,6 +50,12 @@ public class Controller
         return studentService.findAllDistinctCompaniesWithJob();
     }
 
+    @GetMapping(path = "/success")
+    public String success()
+    {
+        return "Success";
+    }
+
     @GetMapping(path = "/export")
     public ResponseEntity<String> downloadExportFile(HttpServletResponse response)
     {
@@ -79,6 +71,20 @@ public class Controller
                     .body(e.getMessage());
         }
         return ResponseEntity.ok().build();
+    }
+
+    @PostMapping(path = "/login")
+    public ResponseEntity<String> login(@RequestBody User user)
+    {
+        return null;
+
+        //        if (user.getUsername().equals("admin") && user.getPassword().equals("admin"))
+        //        {
+        //            return ResponseEntity.ok().build();
+        //        }
+        //        return ResponseEntity
+        //                .status(HttpStatus.UNAUTHORIZED)
+        //                .body("Zugriff verweigert!");
     }
 
     @PostMapping(path = "")

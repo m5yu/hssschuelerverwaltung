@@ -37,13 +37,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
     {
         http.authorizeRequests()
                 .antMatchers("/**").hasAnyRole("USER", "ADMIN")
-                //                .antMatchers("/admin", "/menu").hasRole("ADMIN")
                 .anyRequest()
                 .authenticated()
                 .and()
                 .formLogin()
+                //                .loginPage("/login")
+                //                .permitAll()
                 .and()
-                .exceptionHandling().accessDeniedPage("/403");
+                .exceptionHandling().accessDeniedPage("/error");
     }
 
 }

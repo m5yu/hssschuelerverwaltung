@@ -1,0 +1,161 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(200,200,200);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.linkmargin {
+  margin: 10px;
+}
+
+.tableWrapper {
+  margin:auto;
+  width: 80vw;
+}
+
+.editStudentIcon {
+  text-decoration: none;
+  color: #25a0b5;
+}
+
+.deleteStudentIcon, .deleteStudentIcon:hover {
+  text-decoration: none;
+  color: darkred;
+  cursor: pointer;
+}
+
+.login {
+  
+}
+
+.customBtn {
+  margin: 70px 25px;
+}
+
+label {
+  margin: 10px;
+  display: block;
+}
+
+.centered {
+  margin: auto;
+  width: 60vw;
+}
+
+.formWrapper {
+  padding: 15px;
+  width: 90vw;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 15px;
+}
+
+.formWrapper > div {
+  border-radius: 4px;
+}
+
+.personalInfo {
+  background-color: lightgrey;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+}
+
+.contactPerson {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  background-color:  #f2f2f2;
+}
+
+.contactPersonGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.secondaryContactPerson {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  background-color:  #f2f2f2;
+}
+
+.secondaryContactPersonGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.secondaryContactPersonGrid > div {
+
+}
+
+.company {
+  background-color: lightgrey;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.companyGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.additionalInfo {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 4;
+  grid-row-end: 5;
+  background-color: lightgrey;
+}
+
+.submitBtn {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 5;
+  grid-row-end: 6;
+  background-color:  #f2f2f2;
+}
+
+.customSelect {
+}
+
+.customSelectWrapper {
+  width: 80%;
+  margin: auto;
+}
+
+input[type=text],input[type=email],input[type=date], select {
+  width: 100%;
+  padding: 5px 15px;
+  margin: 0 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+input[type=checkbox]{
+ margin: 10px;
+ background-color: white;
+ border: 1px solid #ccc;
+ border-radius: 4px;
+ height: 20px;
+ width: 20px;
+}
